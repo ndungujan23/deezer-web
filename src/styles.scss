@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://use.fontawesome.com/releases/v6.1.1/css/all.css");
+
+@import "~bulma/sass/utilities/functions";
+
+/**
+* COLORS
+*/
+$primary: #003554 !default;
+$primary-light: #006494 !default;
+$primary-dark: #051923 !default;
+$primary-invert: findColorInvert($primary) !default;
+
+/**
+* TYPOGRAPHY
+*/
+$family-sans-serif: 'Inter', sans-serif !default;
+$family-monospace: monospace !default;
+$render-mode: optimizeLegibility !default;
+
+$weight-light: 300 !default;
+$weight-normal: 400 !default;
+$weight-medium: 500 !default;
+$weight-semibold: 600 !default;
+$weight-bold: 700 !default;
+
+$family-primary: $family-sans-serif  !default;
+$family-secondary: $family-sans-serif  !default;
+$family-code: $family-monospace  !default;
+
+
+@import "~bulma/bulma.sass";
+
+
+* {
+    box-sizing: border-box;
+    font-family: $family-sans-serif;
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
