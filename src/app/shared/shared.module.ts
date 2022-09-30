@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 // Components
 import { TopbarComponent } from './components/topbar/topbar.component';
@@ -22,6 +23,7 @@ import { RestfulService } from './services/restful.service';
   imports: [
     FormsModule,
     HttpClientModule,
+    RouterModule,
   ],
   exports: [
     TopbarComponent,

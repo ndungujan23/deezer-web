@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { MusicRoutingModule } from './music-routing.module';
 import { SharedModule } from '@shared/shared.module';
@@ -17,6 +18,7 @@ import { MusicService } from './music.service';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MusicRoutingModule,
     SharedModule,
   ],

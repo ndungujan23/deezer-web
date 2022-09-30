@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: '**', redirectTo: '', pathMatch: 'full' }
     ]
   },
-  // { path: '**', redirectTo: 'artist', pathMatch: 'full' }
+  { path: '**', redirectTo: 'artist', pathMatch: 'full' }
 ];
 
 @NgModule({
