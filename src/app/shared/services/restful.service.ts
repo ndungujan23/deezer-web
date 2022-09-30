@@ -26,7 +26,7 @@ export class RestfulService {
    * @param params Query params for url if available
    */
    public get<T>(path: string, params: QueryParams = {}): Observable<T> {
-    return this.getOutsider(this.url(path), params);
+    return this.getOutsider<T>(this.url(path), params);
   }
 
   /**
@@ -34,8 +34,8 @@ export class RestfulService {
    * @param path Path to endpoint
    * @param [queryParams] optional query params
    */
-   public getOutsider<T>(url: string, params: QueryParams = {}): Observable<T> {
-    return this.httpClient.get<T>(this.url(url), { params });
+   public getOutsider<T>(path: string, params: QueryParams = {}): Observable<T> {
+    return this.httpClient.get<T>(this.url(path), { params });
   }
 
   /**
@@ -43,6 +43,7 @@ export class RestfulService {
    * @param path Path to add to the domain
    */
   private url(path: string): string {
-    return new URL(path, this.domain).toJSON();
+    // return new URL(path, this.domain).toJSON();
+    return path;
   }
 }

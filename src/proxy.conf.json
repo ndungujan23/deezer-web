@@ -1,0 +1,8 @@
+{
+    "/search": {
+        "target": "https://api.deezer.com",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}
