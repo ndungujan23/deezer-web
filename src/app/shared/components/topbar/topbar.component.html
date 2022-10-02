@@ -5,7 +5,7 @@
         <img alt="Music app" src="/assets/images/logo.png">
       </a>
 
-      <a (click)="toggle();" [class.is-active]="isMenuVisible" aria-expanded="false" aria-label="menu"
+      <a *ngIf="!isSearchHidden" (click)="toggle();" [class.is-active]="isMenuVisible" aria-expanded="false" aria-label="menu"
          class="navbar-burger" data-target="navbarSearchSection" role="button">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -13,7 +13,7 @@
       </a>
     </div>
 
-    <div [class.is-active]="isMenuVisible" class="navbar-menu" id="navbarSearchSection">
+    <div *ngIf="!isSearchHidden" [class.is-active]="isMenuVisible" class="navbar-menu" id="navbarSearchSection">
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="field has-addons">

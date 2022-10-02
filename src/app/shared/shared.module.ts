@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -16,23 +17,28 @@ import { CardAlbumComponent } from './components/card-album/card-album.component
 import { DocumentTitleService } from './services/document-title.service';
 import { RestfulService } from './services/restful.service';
 
+// Pipes
+import { ShortNumberPipe } from './pipes/short-number.pipe';
+
 export function playerFactory(): any {
   return player;
 }
-
 
 @NgModule({
   declarations: [
     TopbarComponent,
     CardArtistComponent,
     CardAlbumComponent,
+
+    ShortNumberPipe,
   ],
   imports: [
+    CommonModule,
     FormsModule,
     HttpClientModule,
     RouterModule,
 
-    LottieModule.forRoot({ player: playerFactory }),
+    LottieModule.forRoot({player: playerFactory}),
   ],
   exports: [
     TopbarComponent,
@@ -44,6 +50,7 @@ export function playerFactory(): any {
     RestfulService,
 
     Title,
+    ShortNumberPipe,
   ]
 })
 export class SharedModule { }

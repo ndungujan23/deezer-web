@@ -4,20 +4,21 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnimationOptions } from 'ngx-lottie';
 
-import { MusicService } from './music.service';
-import { Artist, PaginatedResponse } from './music.model';
+import { MusicService } from '../music.service';
+import { Artist, PaginatedResponse } from '../music.model';
 
 
 @Component({
-  templateUrl: './music.component.html',
+  templateUrl: './artists.component.html',
 })
-export class MusicComponent implements OnInit, OnDestroy {
+export class ArtistsComponent implements OnInit, OnDestroy {
 
   public subscriptions: Subscription[] = [];
   public searchInput = '';
 
   public isLoading = false;
-  public artists?: PaginatedResponse<Artist>;
+  public response?: PaginatedResponse<Artist>;
+  public artists: Artist[] = [];
 
   public loadingOptions: AnimationOptions = {
     path: '/assets/lottie/listening.json'
@@ -50,20 +51,24 @@ export class MusicComponent implements OnInit, OnDestroy {
   }
 
   onSearch(): void {
+    const reset = () => {
+      this.isLoading = false;
+      this.response = undefined;
+      this.artists = [];
+    };
+
     if (!this.searchInput || !this.searchInput.length) {
-      this.artists = undefined;
+      reset();
       return;
     }
 
     this.isLoading = true;
     this.Music.searchArtist(this.searchInput).toPromise()
-      .then((artists) => {
+      .then((response) => {
         this.isLoading = false;
-        this.artists = artists;
+        this.response = response;
+        this.artists = response && response.data || [];
       })
-      .catch(() => {
-        this.isLoading = false;
-        this.artists = undefined;
-      });
+      .catch(reset);
   }
 }

@@ -6,9 +6,8 @@
 ></app-topbar>
 <section class="hero is-fullheight-with-navbar">
   <div class="hero-body is-align-items-center pt-5 px-0 pb-0">
-    <div class="container is-fluid">
-
-      <div *ngIf="!artists" class="columns is-gapless is-multiline">
+    <div class="container is-fluid px-5">
+      <div *ngIf="!artists.length; else artistsTemplate" class="columns is-gapless is-multiline">
         <div class="column has-text-centered">
           <p class="heading">Music DB</p>
           <p class="title is-1">
@@ -24,6 +23,15 @@
           </nav>
         </div>
       </div>
+      <ng-template #artistsTemplate>
+        <ng-container>
+          <div class="columns is-multiline">
+            <div *ngFor="let artist of artists" class="column is-one-fifth">
+              <app-card-artist  [artist]="artist"></app-card-artist>
+            </div>
+          </div>
+        </ng-container>
+      </ng-template>
     </div>
   </div>
 </section>

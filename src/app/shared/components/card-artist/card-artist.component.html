@@ -1,17 +1,13 @@
-<a [routerLink]="artistDetailUrl">
-    <div class="card">
-        <div class="card-image">
-            <figure class="image is-4by3">
-                <img [src]="artist.picture_xl" alt="Artist image">
-            </figure>
-        </div>
-        <div class="card-content">
-            <div class="media">
-                <div class="media-content">
-                    <p class="title is-4">{{artist.name}}</p>
-                    <!-- <p class="subtitle is-6">{{}}</p> -->
-                </div>
-            </div>
-        </div>
+<a [routerLink]="detail">
+  <div class="card">
+    <div class="card-artist-header" [style]="headerStyle">
+      <div class="card-artist-header-slanted-edge"></div>
     </div>
+    <div class="card-content">
+      <div class="content is-small">
+        <h6>{{ artist?.name }}</h6>
+        <p><strong>{{ artist?.nb_fan | shortNumber }}</strong> Fans</p>
+      </div>
+    </div>
+  </div>
 </a>

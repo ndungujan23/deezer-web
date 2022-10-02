@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Artist } from '../../../music/music.model';
 
 @Component({
   selector: 'app-card-artist',
@@ -6,12 +7,18 @@ import { Component, Input } from '@angular/core';
 })
 export class CardArtistComponent {
 
-  @Input() artist: any;
+  @Input() artist?: Artist;
 
-  constructor() { }
-
-  get artistDetailUrl(): string {
-    return `/artist/${this.artist && this.artist.id}`;
+  constructor() {
   }
 
+  get headerStyle(): any {
+    return {
+      'background-image': `url(${this.artist?.picture_big})`
+    };
+  }
+
+  get detail(): string {
+    return `/artists/${this.artist && this.artist.id}`;
+  }
 }

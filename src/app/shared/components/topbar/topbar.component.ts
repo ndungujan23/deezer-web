@@ -10,6 +10,7 @@ export class TopbarComponent {
 
   @Input() searchInput = '';
   @Input() isLoading = false;
+  @Input() isSearchHidden = false;
 
   @Output() queryValueChanged: EventEmitter<string> = new EventEmitter<string>();
   @Output() searchClicked: EventEmitter<boolean> = new EventEmitter<boolean>();

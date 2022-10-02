@@ -8,7 +8,7 @@ import player from 'lottie-web';
 import { MusicRoutingModule } from './music-routing.module';
 import { SharedModule } from '@shared/shared.module';
 
-import { MusicComponent } from './music.component';
+import { ArtistsComponent } from './artists/artists.component';
 import { ArtistComponent } from './artist/artist.component';
 
 import { MusicService } from './music.service';
@@ -19,8 +19,8 @@ export function playerFactory(): any {
 
 @NgModule({
   declarations: [
+    ArtistsComponent,
     ArtistComponent,
-    MusicComponent,
   ],
   imports: [
     CommonModule,
