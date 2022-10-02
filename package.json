@@ -24,6 +24,8 @@
     "@angular/router": "~11.2.1",
     "bulma": "^0.9.4",
     "concurrently": "^6.0.1",
+    "lottie-web": "^5.9.6",
+    "ngx-lottie": "^7.0.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

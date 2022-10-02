@@ -1,49 +1,28 @@
-import { Subscription } from 'rxjs';
-
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-topbar',
   templateUrl: './topbar.component.html',
 })
-export class TopbarComponent implements OnInit, OnDestroy {
+export class TopbarComponent {
 
   public isMenuVisible = false;
-  public searchInput = '';
-  public currentUrl = '';
 
-  public query$?: Subscription;
+  @Input() searchInput = '';
+  @Input() isLoading = false;
 
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-  ) { }
-
-  ngOnInit(): void {
-    this.query$ = this.activatedRoute.queryParams.subscribe((params) => {
-      const queryValue = params && params.q;
-      if (queryValue && queryValue !== this.searchInput) {
-        this.searchInput = queryValue;
-      }
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this.query$) {
-      this.query$.unsubscribe();
-    }
-  }
+  @Output() queryValueChanged: EventEmitter<string> = new EventEmitter<string>();
+  @Output() searchClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   toggle(): void {
     this.isMenuVisible = !this.isMenuVisible;
   }
 
   onSearchValueChanged(value: string): void {
-    this.router.navigate([], {
-      relativeTo: this.activatedRoute,
-      queryParams: value && { q: value } || {}
-    });
+    this.queryValueChanged.emit(value);
+  }
+
+  onSearch(): void {
+    this.searchClicked.emit(true);
   }
 }

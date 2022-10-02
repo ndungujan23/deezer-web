@@ -1,0 +1,29 @@
+<app-topbar
+  [isLoading]="isLoading"
+  [searchInput]="searchInput"
+  (searchClicked)="onSearch()"
+  (queryValueChanged)="onSearchValueChanged($event)"
+></app-topbar>
+<section class="hero is-fullheight-with-navbar">
+  <div class="hero-body is-align-items-center pt-5 px-0 pb-0">
+    <div class="container is-fluid">
+
+      <div *ngIf="!artists" class="columns is-gapless is-multiline">
+        <div class="column has-text-centered">
+          <p class="heading">Music DB</p>
+          <p class="title is-1">
+            Deez.ER
+          </p>
+          <p class="subtitle pt-4">
+            Search for your favorite artist and see <br/> what they're up to...
+          </p>
+          <nav class="level is-mobile">
+            <div class="level-item has-text-centered">
+              <ng-lottie width="300px" height="300px" [options]="loadingOptions"></ng-lottie>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

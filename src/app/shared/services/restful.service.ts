@@ -22,19 +22,10 @@ export class RestfulService {
 
   /**
    * Do a basic GET request to the provided URL
-   * @param path request path
-   * @param params Query params for url if available
+   * @param path Path to endpoint
+   * @param [params] optional query params
    */
    public get<T>(path: string, params: QueryParams = {}): Observable<T> {
-    return this.getOutsider<T>(this.url(path), params);
-  }
-
-  /**
-   * Do a basic GET request to the provided URL
-   * @param path Path to endpoint
-   * @param [queryParams] optional query params
-   */
-   public getOutsider<T>(path: string, params: QueryParams = {}): Observable<T> {
     return this.httpClient.get<T>(this.url(path), { params });
   }
 

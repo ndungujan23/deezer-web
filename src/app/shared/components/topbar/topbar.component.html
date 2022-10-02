@@ -1,32 +1,44 @@
-<nav class="navbar is-fixed-top has-border-bottom">
-    <div class="container is-fluid">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-                <img src="/assets/images/logo.png" alt="Music app">
-            </a>
+<nav class="navbar is-fixed-top has-border-bottom py-3">
+  <div class="container is-fluid">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img alt="Music app" src="/assets/images/logo.png">
+      </a>
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarSearchSection" [class.is-active]="isMenuVisible" (click)="toggle();">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarSearchSection" class="navbar-menu" [class.is-active]="isMenuVisible">
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="field">
-                        <p class="control has-icons-left">
-                            <span class="icon is-small is-left">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </span>
-                            <input required class="input is-normal is-rounded" type="text" placeholder="Search"
-                                [(ngModel)]="searchInput" (ngModelChange)="onSearchValueChanged($event)">
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <a (click)="toggle();" [class.is-active]="isMenuVisible" aria-expanded="false" aria-label="menu"
+         class="navbar-burger" data-target="navbarSearchSection" role="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
+
+    <div [class.is-active]="isMenuVisible" class="navbar-menu" id="navbarSearchSection">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field has-addons">
+            <div class="control has-icons-left">
+              <span class="icon is-small is-left">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+              <input class="input is-normal is-rounded"
+                     placeholder="Search"
+                     type="text"
+                     [readonly]="isLoading"
+                     [(ngModel)]="searchInput"
+                     (ngModelChange)="onSearchValueChanged($event)"
+                     (keyup.enter)="onSearch()">
+            </div>
+            <div class="control">
+              <button class="button is-primary is-rounded" [class.is-loading]="isLoading" (click)="onSearch()">
+                <span class="icon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
