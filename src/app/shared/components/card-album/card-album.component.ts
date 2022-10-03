@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Album } from '../../../music/music.model';
 
 @Component({
   selector: 'app-card-album',
@@ -6,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CardAlbumComponent {
 
-  @Input() album: any;
+  @Input() album?: Album;
 
   constructor() { }
 

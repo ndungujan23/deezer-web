@@ -44,6 +44,7 @@ export function playerFactory(): any {
     TopbarComponent,
     CardArtistComponent,
     CardAlbumComponent,
+    ShortNumberPipe,
   ],
   providers: [
     DocumentTitleService,

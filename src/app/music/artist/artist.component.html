@@ -2,6 +2,53 @@
 <section class="hero is-fullheight-with-navbar">
   <div class="hero-body is-align-items-stretch pt-5 px-0 pb-0">
     <div class="container is-fluid px-5">
+
+      <section class="section">
+        <div class="columns is-multiline">
+          <div class="column is-three-fifths">
+            <div class="box card-artist-background" [ngStyle]="{'background-image': 'url(' + artist?.picture_big + ')'}">
+              <div class="is-flex is-flex-direction-column is-justify-content-center" style="height: 100%">
+                <article class="media">
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong>{{ artist?.name }}</strong>
+                        <br>
+                        {{ artist?.nb_fan | shortNumber }}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <div class="table-container">
+                <p class="title is-6">Top Tracks</p>
+                <table class="table is-fullwidth is-bordered is-striped is-narrow is-hoverable">
+                  <tbody>
+                  <tr *ngFor="let track of topTracks; let i = index">
+                    <th>{{ i + 1 }}</th>
+                    <td>{{ track.title }}</td>
+                    <td>{{ formattedTime(track.duration * 1000) }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h1 class="title">Albums</h1>
+        <div class="columns is-multiline">
+          <div *ngFor="let album of albums" class="column is-one-fifth">
+            <app-card-album [album]="album"></app-card-album>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </section>

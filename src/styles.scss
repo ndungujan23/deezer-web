@@ -51,20 +51,29 @@ body {
 /**
 * Artist Card Header
 */
-.card-artist {
-  &-header {
-    position: relative;
-    min-height: 300px;
-    background-size: cover;
-    background-position: top;
+.card {
+  &-artist {
+    &-header {
+      position: relative;
+      min-height: 300px;
+      background-size: cover;
+      background-position: top;
 
-    &:after {
-      content:'';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, $primary-dark, rgba(181,181,181, 0.1));
+      &:after {
+        content:'';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, $primary-dark, rgba(181,181,181, 0.1));
+      }
     }
+  }
+
+  &-artist-background {
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background: linear-gradient(to left, $primary-dark, rgba(181, 181, 181, 0.1)) no-repeat right;
   }
 }
 

@@ -81,6 +81,7 @@ export interface Artist {
 
 export class PaginatedResponse<T> {
   next?: string;
+  prev?: string;
   total?: number;
   data: T[] = [];
 }
