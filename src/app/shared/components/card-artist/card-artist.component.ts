@@ -19,6 +19,6 @@ export class CardArtistComponent {
   }
 
   get detail(): string {
-    return `/artists/${this.artist && this.artist.id}`;
+    return `/music/artists/${this.artist && this.artist.id}`;
   }
 }
