@@ -66,8 +66,6 @@ export class ArtistComponent implements OnInit, OnDestroy {
       this.artist = results && results[0];
       this.albums = results && results[1] && results[1].data || [];
       this.topTracks = results && results[2] && results[2].data || [];
-
-      console.log(this.topTracks);
     }).catch(reset);
   }
 }

@@ -7,6 +7,9 @@
       <div class="content is-small">
         <h6>{{ artist?.name }}</h6>
         <p><strong>{{ artist?.nb_fan | shortNumber }}</strong> Fans</p>
+        <p class="is-hidden-touch">
+          <strong>{{ artist?.nb_album | shortNumber }}</strong> Albums
+        </p>
       </div>
     </div>
   </div>
